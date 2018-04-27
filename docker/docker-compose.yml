@@ -1,0 +1,20 @@
+version: '3'
+services:
+  jenkins:
+    image: jenkins
+    ports:
+     - "8080:8080"
+     - "50000:50000"
+    volumes:
+     - /jenkins_home:/var/jenkins_home
+  sonarqube:
+    image: sonarqube
+    ports:
+     - "9000:9000"
+     - "9002:9002"
+  web:
+    image: nginx
+    ports:
+     - "80:80"
+    volumes:
+     - ../:/var/www/html/
